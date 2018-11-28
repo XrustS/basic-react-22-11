@@ -1,4 +1,5 @@
 import React from 'react'
+import CommentList from './comments-list'
 
 function Article(props) {
   const { article, isOpen, toggleOpen } = props
@@ -11,10 +12,15 @@ function Article(props) {
   )
 }
 
-function getBody({ isOpen, article }) {
+function getBody({ isOpen, article, comments }) {
   if (!isOpen) return null
 
-  return <section>{article.text}</section>
+  return (
+    <>
+      <section>{article.text}</section>
+      <CommentList comments={comments} />
+    </>
+  )
 }
 
 export default Article
