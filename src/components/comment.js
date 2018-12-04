@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const Comment = (props) => {
   const { user, text } = props
   return (
