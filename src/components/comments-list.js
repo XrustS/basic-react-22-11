@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import Comment from './comment'
 import accordionCustom from '../decorators/accordion-custom'
+import PropTypes from 'prop-types'
 
 class CommentList extends PureComponent {
   render() {
@@ -15,6 +16,7 @@ class CommentList extends PureComponent {
       user,
       text
     }
+
     return (
       <li key={id}>
         <Comment {...props} />
@@ -35,5 +37,14 @@ class CommentList extends PureComponent {
       </>
     )
   }
+}
+CommentList.propTypes = {
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      user: PropTypes.string,
+      text: PropTypes.string
+    })
+  )
 }
 export default accordionCustom(CommentList)

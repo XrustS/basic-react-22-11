@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CommentList from './comment-list'
+import CommentList from './comments-list'
 
 function Article(props) {
   const { article, isOpen, toggleOpen } = props
@@ -19,12 +19,10 @@ function getBody({ isOpen, article, comments }) {
   if (!isOpen) return null
 
   return (
-
     <section className="test__article--body">
       {article.text}
       <CommentList comments={article.comments} />
     </section>
-
   )
 }
 

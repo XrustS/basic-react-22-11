@@ -1,8 +1,27 @@
 import React, { Component } from 'react'
 import Article from './article'
 import accordion from '../decorators/accordion'
+import PropTypes from 'prop-types'
 
 export class ArticleList extends Component {
+  static propTypes = {
+    articles: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        comments: PropTypes.arrayOf(
+          PropTypes.shape({
+            id: PropTypes.string,
+            user: PropTypes.string,
+            text: PropTypes.string
+          })
+        )
+      })
+    ),
+    openItemId: PropTypes.string.isRequired,
+    toggleOpenItem: PropTypes.func.isRequired
+  }
   setListRef = (ref) => {
     this.list = ref
   }
