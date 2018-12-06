@@ -29,11 +29,16 @@ class CommentList extends PureComponent {
       <>
         <h4>
           Комментарии
-          <button style={{ marginLeft: '40px' }} onClick={toggleOpen}>
-            {isOpen ? 'Open' : 'Close'}
+          <button
+            id="comment-btn"
+            className="test__comment--btn1"
+            style={{ marginLeft: '40px' }}
+            onClick={toggleOpen}
+          >
+            {isOpen ? 'Hide  comments' : 'Show comments'}
           </button>
         </h4>
-        {isOpen && <ul>{comments.map(this.getComment)}</ul>}
+        {isOpen && <ul className="test__comment--body">{comments.map(this.getComment)}</ul>}
       </>
     )
   }
